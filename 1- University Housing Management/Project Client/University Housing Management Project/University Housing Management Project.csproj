@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41961144-CC8C-4636-B73A-0FB0AAD58E5B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>University_Housing_Management_Project</RootNamespace>
+    <AssemblyName>University Housing Management Project</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.8, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.8\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.Bson.1.0.2\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="QuestPDF, Version=2026.7.1.0, Culture=neutral, PublicKeyToken=0f3c2b2315ff52c8, processorArchitecture=MSIL">
+      <HintPath>packages\QuestPDF.2026.7.1\lib\netstandard2.0\QuestPDF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.6.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTOs\AddProductDto.cs" />
+    <Compile Include="DTOs\AddQuantityDto.cs" />
+    <Compile Include="DTOs\AddViolationDto.cs" />
+    <Compile Include="DTOs\AllProductsDto.cs" />
+    <Compile Include="DTOs\AllProductsWithoutDetailsDto.cs" />
+    <Compile Include="DTOs\AllSubscriptionsDto.cs" />
+    <Compile Include="DTOs\AllViolationsDto.cs" />
+    <Compile Include="DTOs\Auth\LoginRequest.cs" />
+    <Compile Include="DTOs\Auth\LogoutRequest.cs" />
+    <Compile Include="DTOs\Auth\RefreshRequest.cs" />
+    <Compile Include="DTOs\Auth\TokenResponse.cs" />
+    <Compile Include="DTOs\ChangePasswordDto.cs" />
+    <Compile Include="DTOs\CurrentUserDto.cs" />
+    <Compile Include="DTOs\CustomUserDto.cs" />
+    <Compile Include="DTOs\ProductDto.cs" />
+    <Compile Include="DTOs\RoomDto.cs" />
+    <Compile Include="DTOs\RoomFilterDto.cs" />
+    <Compile Include="DTOs\RoomStatusDto.cs" />
+    <Compile Include="DTOs\SaleDetailsByIdDto.cs" />
+    <Compile Include="DTOs\SaleInfoDto.cs" />
+    <Compile Include="DTOs\SaleProductViewDto.cs" />
+    <Compile Include="DTOs\SalesFilterDto.cs" />
+    <Compile Include="DTOs\SaleSummaryDto.cs" />
+    <Compile Include="DTOs\SimpleUserDto.cs" />
+    <Compile Include="DTOs\SpecializationDto.cs" />
+    <Compile Include="DTOs\SpecializationStatisticsDto.cs" />
+    <Compile Include="DTOs\StoreOperationsDto.cs" />
+    <Compile Include="DTOs\StoreOperationsFilterDto.cs" />
+    <Compile Include="DTOs\StudentDto.cs" />
+    <Compile Include="DTOs\StudentFilterDto.cs" />
+    <Compile Include="DTOs\StudentOperationsDto.cs" />
+    <Compile Include="DTOs\StudentOperationsFilterDto.cs" />
+    <Compile Include="DTOs\StudentWithDetailsDto.cs" />
+    <Compile Include="DTOs\SubscriptionsFilterDto.cs" />
+    <Compile Include="DTOs\SubscriptionTypeDto.cs" />
+    <Compile Include="DTOs\UpdateProductDto.cs" />
+    <Compile Include="DTOs\UserDto.cs" />
+    <Compile Include="DTOs\ViolationDetailsDto.cs" />
+    <Compile Include="DTOs\ViolationDto.cs" />
+    <Compile Include="DTOs\ViolationRateDto.cs" />
+    <Compile Include="DTOs\ViolationsFilterDto.cs" />
+    <Compile Include="DTOs\ViolationTypeDto.cs" />
+    <Compile Include="Forms\Home\AboutMe\CtrlAboutMe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlAboutMe.Designer.cs">
+      <DependentUpon>CtrlAboutMe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlMe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlMe.Designer.cs">
+      <DependentUpon>CtrlMe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlMyGools.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlMyGools.Designer.cs">
+      <DependentUpon>CtrlMyGools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlMyProjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlMyProjects.Designer.cs">
+      <DependentUpon>CtrlMyProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlMyTravel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlMyTravel.Designer.cs">
+      <DependentUpon>CtrlMyTravel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlWhyProgramming.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\AboutMe\CtrlWhyProgramming.Designer.cs">
+      <DependentUpon>CtrlWhyProgramming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\BankManagement\Bank\CtrlBankManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\BankManagement\Bank\CtrlBankManagement.Designer.cs">
+      <DependentUpon>CtrlBankManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\CtrlHomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\CtrlHomePage.Designer.cs">
+      <DependentUpon>CtrlHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\CtrlSpecializationStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\CtrlSpecializationStatistics.Designer.cs">
+      <DependentUpon>CtrlSpecializationStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\ProductManagement\CtrlAddQuantityForProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\ProductManagement\CtrlAddQuantityForProduct.Designer.cs">
+      <DependentUpon>CtrlAddQuantityForProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\ProductManagement\CtrlAddUpdateProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\ProductManagement\CtrlAddUpdateProduct.Designer.cs">
+      <DependentUpon>CtrlAddUpdateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\ProductManagement\frmShowProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\ProductManagement\frmShowProducts.Designer.cs">
+      <DependentUpon>frmShowProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\ProductManagement\Products\CtrlProductManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\ProductManagement\Products\CtrlProductManagement.Designer.cs">
+      <DependentUpon>CtrlProductManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\RoomManagement\CtrlAddUpdateRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\RoomManagement\CtrlAddUpdateRoom.Designer.cs">
+      <DependentUpon>CtrlAddUpdateRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\RoomManagement\CtrlShowStudentInRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\RoomManagement\CtrlShowStudentInRoom.Designer.cs">
+      <DependentUpon>CtrlShowStudentInRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\RoomManagement\Rooms\CtrlRoomManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\RoomManagement\Rooms\CtrlRoomManagement.Designer.cs">
+      <DependentUpon>CtrlRoomManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\SaleManagement\CtrlAddNewSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\SaleManagement\CtrlAddNewSale.Designer.cs">
+      <DependentUpon>CtrlAddNewSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\SaleManagement\CtrlShowSaleDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\SaleManagement\CtrlShowSaleDetails.Designer.cs">
+      <DependentUpon>CtrlShowSaleDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\SaleManagement\Sales\CtrlSaleManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\SaleManagement\Sales\CtrlSaleManagement.Designer.cs">
+      <DependentUpon>CtrlSaleManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\StudentManagement\CtrlAddUpdateStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\StudentManagement\CtrlAddUpdateStudent.Designer.cs">
+      <DependentUpon>CtrlAddUpdateStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\StudentManagement\Students\CtrlStudentsInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\StudentManagement\Students\CtrlStudentsInformation.Designer.cs">
+      <DependentUpon>CtrlStudentsInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\SubscriptionManagement\CtrlAddNewSubscription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\SubscriptionManagement\CtrlAddNewSubscription.Designer.cs">
+      <DependentUpon>CtrlAddNewSubscription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\SubscriptionManagement\CtrlRenewSubscription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\SubscriptionManagement\CtrlRenewSubscription.Designer.cs">
+      <DependentUpon>CtrlRenewSubscription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\SubscriptionManagement\StudentSubscriptions\CtrlSubscriptionManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\SubscriptionManagement\StudentSubscriptions\CtrlSubscriptionManagement.Designer.cs">
+      <DependentUpon>CtrlSubscriptionManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\UserManagement\CtrlAddNewUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\UserManagement\CtrlAddNewUser.Designer.cs">
+      <DependentUpon>CtrlAddNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\UserManagement\CtrlChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\UserManagement\CtrlChangePassword.Designer.cs">
+      <DependentUpon>CtrlChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\UserManagement\Users\CtrlUserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\UserManagement\Users\CtrlUserManagement.Designer.cs">
+      <DependentUpon>CtrlUserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\ViolationManagement\CtrlAddNewViolation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\ViolationManagement\CtrlAddNewViolation.Designer.cs">
+      <DependentUpon>CtrlAddNewViolation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\ViolationManagement\CtrlShowViolationDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\ViolationManagement\CtrlShowViolationDetails.Designer.cs">
+      <DependentUpon>CtrlShowViolationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\ViolationManagement\CtrlViolationsStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\ViolationManagement\CtrlViolationsStatistics.Designer.cs">
+      <DependentUpon>CtrlViolationsStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home\ViolationManagement\Violations\CtrlViolationManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Home\ViolationManagement\Violations\CtrlViolationManagement.Designer.cs">
+      <DependentUpon>CtrlViolationManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\Constants\Settings.cs" />
+    <Compile Include="Global\CurrentUser.cs" />
+    <Compile Include="Helpers\DealWithImage.cs" />
+    <Compile Include="Helpers\Pdf\PdfDisplayNameAttribute.cs" />
+    <Compile Include="Helpers\Pdf\PdfGenerator.cs" />
+    <Compile Include="Helpers\Pdf\PdfIgnoreAttribute.cs" />
+    <Compile Include="Helpers\QueryBuilder.cs" />
+    <Compile Include="Helpers\UserControlManagement.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApiClient.cs" />
+    <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\BankService.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Services\SaleDetailService.cs" />
+    <Compile Include="Services\SettingService.cs" />
+    <Compile Include="Services\SpecializationService.cs" />
+    <Compile Include="Services\StudentService.cs" />
+    <Compile Include="Services\SubscriptionService.cs" />
+    <Compile Include="Services\SubscriptionTypeService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\ViolationService.cs" />
+    <Compile Include="Services\ViolationTypeService.cs" />
+    <EmbeddedResource Include="Forms\Home\AboutMe\CtrlAboutMe.resx">
+      <DependentUpon>CtrlAboutMe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\AboutMe\CtrlMe.resx">
+      <DependentUpon>CtrlMe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\AboutMe\CtrlMyGools.resx">
+      <DependentUpon>CtrlMyGools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\AboutMe\CtrlMyProjects.resx">
+      <DependentUpon>CtrlMyProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\AboutMe\CtrlMyTravel.resx">
+      <DependentUpon>CtrlMyTravel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\AboutMe\CtrlWhyProgramming.resx">
+      <DependentUpon>CtrlWhyProgramming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\BankManagement\Bank\CtrlBankManagement.resx">
+      <DependentUpon>CtrlBankManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\CtrlHomePage.resx">
+      <DependentUpon>CtrlHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\CtrlSpecializationStatistics.resx">
+      <DependentUpon>CtrlSpecializationStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\ProductManagement\CtrlAddQuantityForProduct.resx">
+      <DependentUpon>CtrlAddQuantityForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\ProductManagement\CtrlAddUpdateProduct.resx">
+      <DependentUpon>CtrlAddUpdateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\ProductManagement\frmShowProducts.resx">
+      <DependentUpon>frmShowProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\ProductManagement\Products\CtrlProductManagement.resx">
+      <DependentUpon>CtrlProductManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\RoomManagement\CtrlAddUpdateRoom.resx">
+      <DependentUpon>CtrlAddUpdateRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\RoomManagement\CtrlShowStudentInRoom.resx">
+      <DependentUpon>CtrlShowStudentInRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\RoomManagement\Rooms\CtrlRoomManagement.resx">
+      <DependentUpon>CtrlRoomManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\SaleManagement\CtrlAddNewSale.resx">
+      <DependentUpon>CtrlAddNewSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\SaleManagement\CtrlShowSaleDetails.resx">
+      <DependentUpon>CtrlShowSaleDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\SaleManagement\Sales\CtrlSaleManagement.resx">
+      <DependentUpon>CtrlSaleManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\StudentManagement\CtrlAddUpdateStudent.resx">
+      <DependentUpon>CtrlAddUpdateStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\StudentManagement\Students\CtrlStudentsInformation.resx">
+      <DependentUpon>CtrlStudentsInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\SubscriptionManagement\CtrlAddNewSubscription.resx">
+      <DependentUpon>CtrlAddNewSubscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\SubscriptionManagement\CtrlRenewSubscription.resx">
+      <DependentUpon>CtrlRenewSubscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\SubscriptionManagement\StudentSubscriptions\CtrlSubscriptionManagement.resx">
+      <DependentUpon>CtrlSubscriptionManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\UserManagement\CtrlAddNewUser.resx">
+      <DependentUpon>CtrlAddNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\UserManagement\CtrlChangePassword.resx">
+      <DependentUpon>CtrlChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\UserManagement\Users\CtrlUserManagement.resx">
+      <DependentUpon>CtrlUserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\ViolationManagement\CtrlAddNewViolation.resx">
+      <DependentUpon>CtrlAddNewViolation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\ViolationManagement\CtrlShowViolationDetails.resx">
+      <DependentUpon>CtrlShowViolationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\ViolationManagement\CtrlViolationsStatistics.resx">
+      <DependentUpon>CtrlViolationsStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home\ViolationManagement\Violations\CtrlViolationManagement.resx">
+      <DependentUpon>CtrlViolationManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1730282098928.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1730282098961.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common Library\Common Library.csproj">
+      <Project>{f18ec5f5-aa2e-4e8b-b3b9-ec795f6590f9}</Project>
+      <Name>Common Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17302820989281.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ue1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subscription-model.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door-handle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-bag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ban.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutProgrammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-door-out-3%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ban %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subscription-model %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door-handle %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wsq1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-bag %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-laptop%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutProgrammer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutProgrammer21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1757680871045.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money-bag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\٢٠٢٤١١١٢_١٠٠٦٢٣.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1727817610613.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MyPhoto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2025-09-12 at 22.58.03_ee022b93.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2025-09-12 at 22.29.08_4e0c979a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2025-09-12 at 22.11.33_28b7394a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square-plus%4010x1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print%4010x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-dotted-rotate-anticlockwise%4010x1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\overview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\assessment-alt %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-phone-flip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\message-sms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\overview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar-update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar-update %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\assessment-alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square-plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Me.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar-symbol.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\QuestPDF.2026.7.1\build\net4\QuestPDF.targets" Condition="Exists('packages\QuestPDF.2026.7.1\build\net4\QuestPDF.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\QuestPDF.2026.7.1\build\net4\QuestPDF.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\QuestPDF.2026.7.1\build\net4\QuestPDF.targets'))" />
+  </Target>
+</Project>

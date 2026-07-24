@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../Common Library/Common Library.csproj" Id="f18ec5f5-aa2e-4e8b-b3b9-ec795f6590f9" />
+  <Project Path="University Housing Management Project.csproj" Id="41961144-cc8c-4636-b73a-0fb0aad58e5b" />
+</Solution>
