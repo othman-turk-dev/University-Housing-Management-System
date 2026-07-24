@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../Business_Layer/Business_Layer.csproj" />
+  <Project Path="../Data_Access_Layer/Data_Access_Layer.csproj" />
+  <Project Path="University Housing Management Project.csproj" />
+</Solution>

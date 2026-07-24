@@ -1,0 +1,6 @@
+2026-07-24 05:41:10 [INF] Now listening on: https://localhost:7282
+2026-07-24 05:41:10 [INF] Now listening on: http://localhost:5172
+2026-07-24 05:41:10 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-24 05:41:10 [INF] Hosting environment: Development
+2026-07-24 05:41:10 [INF] Content root path: C:\Users\ZANNOUJA\Desktop\1- University Housing Management\Project Server\University Housing Management Project
+2026-07-24 05:42:21 [INF] Login successfuly with othman
